@@ -7,6 +7,6 @@ class BrowserPage extends StatelessWidget {
         appBar: AppBar(
           title: Text("BrowserPage"),
         ),
-        body: Center(child: Text("浏览页面待实现啊")));
+        body: Container());
   }
 }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_gank/BrowserPage.dart';
 
+import 'ImagePage.dart';
+
+bool topLevel = true;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -70,26 +74,26 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline,
             ),
             FlatButton(
-                onPressed: () {
-                  //导航到浏览页面
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return new BrowserPage();
-                  }));
-                },
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => BrowserPage())),
                 textColor: Colors.deepOrangeAccent,
-                child: Text("Trigger Browser Page !"))
+                child: Text("Trigger Browser Page ! $_counter")),
+            RaisedButton(
+                onPressed: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => ImagePage())),
+                textColor: Colors.blue[200],
+                child: Text("打开图片浏览页面")),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => setState(() => _counter++),
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
