@@ -10,11 +10,15 @@
 //
 //import 'package:go_gank/main.dart';
 
+import 'async_dart.dart';
 import 'dart_syntax.dart';
 
 void main() {
-  DartSyntax syntax = DartSyntax();
-  syntax.testVariable();
+//  DartSyntax syntax = DartSyntax();
+//  syntax.testVariable();
+
+  AsyncTest test = AsyncTest();
+  test.delaySay();
 
 //  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
 //    // Build our app and trigger a frame.

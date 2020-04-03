@@ -67,18 +67,14 @@ class DartSyntax {
     return Random.secure().nextInt(100);
   }
 
-  //对于只含有一个表达式的函数，可以简写
+  //对于只含有一个表达式的函数，可以简写, return 也可以省略
   void testCallback(callback cb) => print("callback = $cb");
 
   //函数作为变量
   //todo 这里的提示的意思是？
-  var validAge = (int) {
-    return int > 0 && int < 150;
-  };
+  var validAge = (int) => int > 0 && int < 150;
 
-  var sayWords = (str) {
-    print(str);
-  };
+  var sayWords = (str) => print(str);
 
   //可选的位置参数,使用中括号标定
   String getFullStudentInfo(String name, int age, [int gender]) {
