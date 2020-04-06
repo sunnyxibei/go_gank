@@ -35,9 +35,12 @@ class DartSyntax {
     //常量 注意，这两个只是修饰符，不是类型
     //const 编译时常量
     //final 在第一次使用的时候初始化
-    const String leijun = "Leijun";
+    const String leijun = "How are you ? ";
     final String lesson = "How are you ? ";
     print("$lesson$leijun");
+
+    print(identical(leijun, lesson));
+    print(leijun == lesson);
 
     print("testFunction = ${testFunction(49)}");
 

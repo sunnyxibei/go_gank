@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_gank/BrowserPage.dart';
+import 'package:go_gank/container.dart';
+import 'package:go_gank/grid_demo.dart';
 
 import 'ImagePage.dart';
 
@@ -86,6 +88,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     .push(MaterialPageRoute(builder: (context) => ImagePage())),
                 textColor: Colors.blue[200],
                 child: Text("打开图片浏览页面")),
+            RaisedButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => GridExtentWidget())),
+                textColor: Colors.blue[200],
+                child: Text("打开GridView示例页面")),
+            FlatButton(
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ContainerPage())),
+              textColor: Colors.green,
+              child: Text("打开Container示例页面"),
+            )
           ],
         ),
       ),
