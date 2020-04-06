@@ -7,6 +7,7 @@ class ContainerPage extends StatelessWidget {
   Widget buildContainer() => Container(
         decoration: BoxDecoration(color: Colors.black12),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Row(
               children: [
@@ -25,10 +26,11 @@ class ContainerPage extends StatelessWidget {
       );
 
   Widget _buildImage(String name) {
+    //Expanded 可以缩放大小的Widget
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black38),
+          border: Border.all(width: 10, color: Colors.black38),
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
         margin: EdgeInsets.all(4),

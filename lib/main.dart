@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_gank/BrowserPage.dart';
+import 'package:go_gank/browser_page.dart';
 import 'package:go_gank/container.dart';
-import 'package:go_gank/grid_demo.dart';
+import 'package:go_gank/grid_count_page.dart';
+import 'package:go_gank/grid_extent_page.dart';
 
-import 'ImagePage.dart';
+import 'pavlova_page.dart';
 
 bool topLevel = true;
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         ),
         //首页路由
         home: MyHomePage(title: 'gank.io'),
+        routes: {"/container": (context) => ContainerPage()},
       );
 }
 
@@ -84,20 +86,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 textColor: Colors.deepOrangeAccent,
                 child: Text("Trigger Browser Page ! $_counter")),
             RaisedButton(
-                onPressed: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => ImagePage())),
+                onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PavlovaPage(),
+                      ),
+                    ),
                 textColor: Colors.blue[200],
-                child: Text("打开图片浏览页面")),
+                child: Text("打开 PavlovaPage")),
             RaisedButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => GridExtentWidget())),
+                onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => GridExtentWidget(),
+                      ),
+                    ),
                 textColor: Colors.blue[200],
                 child: Text("打开GridView示例页面")),
             FlatButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ContainerPage())),
+              onPressed: () => Navigator.of(context).pushNamed('/container'),
               textColor: Colors.green,
               child: Text("打开Container示例页面"),
+            ),
+            FlatButton(
+              child: Text("打开GridView Count示例页面"),
+              textColor: Colors.teal,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => GridViewCountPage(),
+                ),
+              ),
             )
           ],
         ),
