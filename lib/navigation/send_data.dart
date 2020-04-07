@@ -27,14 +27,22 @@ class OriginalPage extends StatelessWidget {
             return ListTile(
               title: Text(todo.title),
               subtitle: Text(todo.description),
-              onTap: () {
-                Navigator.of(context).push(
+              onTap: () async {
+                var result = await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => DestinationPage(
                       todo: todo,
                     ),
                   ),
                 );
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  backgroundColor: Colors.teal,
+                  action: SnackBarAction(
+                    label: "$result",
+                    onPressed: () {},
+                  ),
+                  content: Text("$result"),
+                ));
               },
             );
           }),
@@ -52,6 +60,24 @@ class DestinationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(todo.author),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FlatButton(
+              color: Colors.teal,
+              child: Text("Yes!"),
+              onPressed: () => Navigator.of(context).pop("Yes!"),
+            ),
+            FlatButton(
+              color: Colors.teal,
+              child: Text("No!"),
+              onPressed: () => Navigator.of(context).pop("No!"),
+            )
+          ],
+        ),
       ),
     );
   }
