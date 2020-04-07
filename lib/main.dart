@@ -3,6 +3,7 @@ import 'package:go_gank/browser_page.dart';
 import 'package:go_gank/container.dart';
 import 'package:go_gank/grid_count_page.dart';
 import 'package:go_gank/grid_extent_page.dart';
+import 'package:go_gank/navigation/send_data.dart';
 
 import 'pavlova_page.dart';
 
@@ -113,6 +114,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                   builder: (context) => GridViewCountPage(),
                 ),
+              ),
+            ),
+            FlatButton(
+              child: Text("测试路由传递数据"),
+              textColor: Colors.green,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => OriginalPage()),
               ),
             )
           ],
