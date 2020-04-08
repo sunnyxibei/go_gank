@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +27,7 @@ class LoginPage extends StatelessWidget {
     return Future.value(!maybePop);
   }
 
+  ///WillPopScope用于处理返回事件的响应，类似于Android的onBackPressed
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -48,6 +47,9 @@ class LoginPage extends StatelessWidget {
             default:
               throw Exception('Invalid route: ${settings.name}');
           }
+          //这里可以hook一下，挂一个勾子，如果token没有的话，直接跳转登陆页面
+          //当然这样做也不太好，最好的是我们在Focus Course中的实践，在接收到token过期的事件后才处理事件，满足less is best
+          //简单且够用，这点特别重要，简单且够用
           return MaterialPageRoute(builder: builder, settings: settings);
         },
       ),
@@ -71,7 +73,7 @@ class UsernamePage extends StatelessWidget {
                 onPressed: () =>
                     Navigator.of(context, rootNavigator: true).pop()),
             FlatButton(
-              child: Text("Back"),
+              child: Text("下一步"),
               onPressed: () =>
                   Navigator.of(context).pushNamed('account/password'),
             )
