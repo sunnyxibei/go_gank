@@ -4,6 +4,7 @@ import 'package:go_gank/container.dart';
 import 'package:go_gank/grid_count_page.dart';
 import 'package:go_gank/grid_extent_page.dart';
 import 'package:go_gank/navigation/hero_page.dart';
+import 'package:go_gank/navigation/nest_navigation.dart';
 import 'package:go_gank/navigation/send_data.dart';
 
 import 'pavlova_page.dart';
@@ -129,6 +130,13 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.green,
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => HeroPage()),
+              ),
+            ),
+            FlatButton(
+              child: Text("测试nested navigation"),
+              textColor: Colors.green,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => AccountPage()),
               ),
             ),
           ],

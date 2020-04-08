@@ -30,9 +30,7 @@ class OriginalPage extends StatelessWidget {
               onTap: () async {
                 var result = await Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => DestinationPage(
-                      todo: todo,
-                    ),
+                    builder: (context) => DestinationPage(todo: todo),
                   ),
                 );
                 Scaffold.of(context).showSnackBar(SnackBar(
