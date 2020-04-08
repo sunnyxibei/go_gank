@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(builder: (context) => BrowserPage())),
                 textColor: Colors.deepOrangeAccent,
                 child: Text("Trigger Browser Page ! $_counter")),
-            RaisedButton(
+            FlatButton(
                 onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => PavlovaPage(),
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                 textColor: Colors.blue[200],
                 child: Text("打开 PavlovaPage")),
-            RaisedButton(
+            FlatButton(
                 onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => GridExtentWidget(),
